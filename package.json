@@ -1,0 +1,34 @@
+{
+  "name": "koa-ssr-vue",
+  "version": "1.0.0",
+  "description": "基于vue的服务渲染",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hpstream/koa-ssr-vue.git"
+  },
+  "keywords": [
+    "vue",
+    "koa",
+    "ssr"
+  ],
+  "author": "hphpstream",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hpstream/koa-ssr-vue/issues"
+  },
+  "homepage": "https://github.com/hpstream/koa-ssr-vue#readme",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "vue": "^2.5.17",
+    "vue-server-renderer": "^2.5.17"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
