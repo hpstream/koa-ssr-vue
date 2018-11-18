@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "dev": "webpack --config client/buildConfig/webpack.base.conf.js",
+    "webpack:client": "webpack --config client/buildConfig/webpack.client.conf.js",
+    "webpack:server": "webpack --config client/buildConfig/webpack.server.conf.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,19 +19,34 @@
     "koa",
     "ssr"
   ],
-  "author": "hphpstream",
+  "author": "hpstream",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hpstream/koa-ssr-vue/issues"
   },
-  "homepage": "https://github.com/hpstream/koa-ssr-vue#readme",
+  "homepage": "https://github.com/hpstream/koa-ssr-vue.git#readme",
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
     "koa": "^2.6.2",
     "koa-router": "^7.4.0",
     "vue": "^2.5.17",
     "vue-server-renderer": "^2.5.17"
   },
   "devDependencies": {
-    "nodemon": "^1.18.6"
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.6",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.4"
   }
 }

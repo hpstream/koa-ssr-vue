@@ -1,9 +1,29 @@
 const Koa = require('koa');
 const app = new Koa();
-app.use(async(ctx,next)=>{
-    ctx.body ='hello world';
-})
+const router = require('koa-router')();
+const Vue = require('vue');
+const { createRenderer,createBundleRenderer } = require('vue-server-renderer')
+const renderer = createRenderer();
+// app.use(async(ctx,next)=>{
+//     ctx.body ='hello world';
+// })
 
+router.get('*',async(ctx,next)=>{
+    var app = new Vue({
+        data:{
+            url:ctx.req.url
+        },
+        template:`<div>访问地址是url:{{url}}</div>`
+    })
+    renderer.renderToString(app, (err, html) => {
+        if (err) throw err
+        ctx.body = html;
+      })
+})
+// router.get('/index',async(ctx,next)=>{
+//     ctx.body ='index';
+// })
+app.use(router.routes()).use(router.allowedMethods());
 app.listen(3000,(err)=>{
     if(err) throw(err);
 
