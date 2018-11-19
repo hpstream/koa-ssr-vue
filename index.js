@@ -4,22 +4,24 @@ const router = require('koa-router')();
 const Vue = require('vue');
 const { createRenderer,createBundleRenderer } = require('vue-server-renderer')
 const renderer = createRenderer();
-// app.use(async(ctx,next)=>{
-//     ctx.body ='hello world';
+const devWare = require('./dev-middleware.js');
+
+
+devWare(app);
+
+// router.get('*',async(ctx,next)=>{
+//     var app = new Vue({
+//         data:{
+//             url:ctx.req.url
+//         },
+//         template:`<div>访问地址是url:{{url}}</div>`
+//     })
+//     renderer.renderToString(app, (err, html) => {
+//         if (err) throw err
+//         ctx.body = html;
+//       })
 // })
 
-router.get('*',async(ctx,next)=>{
-    var app = new Vue({
-        data:{
-            url:ctx.req.url
-        },
-        template:`<div>访问地址是url:{{url}}</div>`
-    })
-    renderer.renderToString(app, (err, html) => {
-        if (err) throw err
-        ctx.body = html;
-      })
-})
 // router.get('/index',async(ctx,next)=>{
 //     ctx.body ='index';
 // })
